@@ -25,6 +25,7 @@ function renderLines(gMeme) {
     gMeme.lines.forEach(meme => {
         let x = meme.pos.x
         let y = meme.pos.y
+        console.log('x line, y line:', x, y)
         gCtx.lineWidth = 0.1
         gCtx.strokeStyle = 'red'
         gCtx.fillStyle = meme.color
@@ -71,7 +72,7 @@ function onCangeSelectLine() {
     changeSelectLine()
 }
 
-// draw frame to the select line
+// when line is selected change btns and unputs to her value and draw frame
 function lineIsSelect(gMeme) {
     let meme = gMeme.lines[gMeme.selectedLineIdx]
     document.querySelector('.inputTxt').value = `${meme.txt}`
@@ -85,13 +86,19 @@ function lineIsSelect(gMeme) {
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
-    gCtx.strokeStyle = '#000000'
+    gCtx.strokeStyle = '#46FF32'
     gCtx.lineWidth = 2
-
-    gCtx.strokeRect(
-        x - textWidth / 2 - padding,
-        y - textHeight / 2 - padding,
-        textWidth + padding * 2,
-        textHeight + padding * 2)
+console.log('x', x - textWidth / 2 - padding)
+console.log('y', y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2)
+gCtx.strokeRect(
+    x - textWidth / 2 - padding,
+    y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+)
+    console.log(gCtx.strokeRect)
 
 }
+
+// function onClick(ev) {
+//     const { offsetX, offsetY} = ev
+//     console.log({ offsetX, offsetY})
+// }

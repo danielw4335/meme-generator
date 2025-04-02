@@ -48,7 +48,7 @@ function setImg(imgIdx) {
     renderMeme()
 }
 
-
+// change the line color
 function setLineColor(color) {
     console.log(color)
     gMeme.lines[gMeme.selectedLineIdx].color = color
