@@ -10,11 +10,17 @@
 
 <body onload="onInit()">
     
-    
+    <!-- canvas -->
     <div class="canvas-container">
         <canvas width="400" height="400">
         </canvas>
     </div>
+    <label for="txt">txt</label>
+    <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
+
+<div class="gallery-container">
+    
+</div>
 
 <script src="js/main.js"></script>
 <script src="js/controlers/meme-controler.js"></script>
