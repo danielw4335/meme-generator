@@ -9,14 +9,14 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'black',
+            color: '#000000',
             pos: {x: 200, y: 100},
             isSelected: false
         },
         {
             txt: 'Lets enter text',
             size: 20,
-            color: 'black',
+            color: '#000000',
             pos: {x: 200, y: 300},
             isSelected: false
         }
@@ -69,7 +69,7 @@ function addLine() {
         gMeme.lines.push({
             txt: 'enter text',
             size: 20,
-            color: 'black',
+            color: '#000000',
             pos: { x: gElCanvas.width / 2, y},
             isSelected: true
         })

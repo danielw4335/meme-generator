@@ -33,7 +33,7 @@ function renderLines(gMeme) {
         gCtx.textBaseline = 'middle'
         gCtx.fillText(meme.txt, x, y)
         gCtx.strokeText(meme.txt, x, y)
-        if(meme.isSelected)drawFrame(gMeme)
+        if (meme.isSelected) lineIsSelect(gMeme)
     })
 
 
@@ -72,8 +72,12 @@ function onCangeSelectLine() {
 }
 
 // draw frame to the select line
-function drawFrame(gMeme) {
+function lineIsSelect(gMeme) {
     let meme = gMeme.lines[gMeme.selectedLineIdx]
+    document.querySelector('.inputTxt').value = `${meme.txt}`
+    document.querySelector('.color-line').value = `${meme.color}`
+
+
     if (!meme.txt || meme.txt.trim() === '') return
     let y = meme.pos.y
     let x = meme.pos.x
@@ -81,7 +85,7 @@ function drawFrame(gMeme) {
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
-    gCtx.strokeStyle = 'black'
+    gCtx.strokeStyle = '#000000'
     gCtx.lineWidth = 2
 
     gCtx.strokeRect(
