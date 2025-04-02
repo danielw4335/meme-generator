@@ -7,18 +7,18 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'red'
+            color: 'black'
         }
     ]
 }
 
 // find meme by idx
 function getMeme() {
- let line = gMeme.lines[gMeme.selectedLineIdx]
- let imgSrc = gImgs[gMeme.selectedImgId-1].url
-let img = new Image()
-img.src = imgSrc
-return {img, line}
+    let line = gMeme.lines[gMeme.selectedLineIdx]
+    let imgSrc = gImgs[gMeme.selectedImgId - 1].url
+    let img = new Image()
+    img.src = imgSrc
+    return { img, line }
 }
 
 // change change selectidx of line
@@ -31,4 +31,18 @@ function setLineTxt(txt) {
 function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
     renderMeme()
+}
+
+
+function setLineColor(color) {
+    console.log(color)
+    gMeme.lines[gMeme.selectedLineIdx].color = color
+    renderMeme()
+}
+
+// change font size
+function setFontSize(bool) {
+if(bool) gMeme.lines[gMeme.selectedLineIdx].size++
+else gMeme.lines[gMeme.selectedLineIdx].size--
+     renderMeme()
 }
