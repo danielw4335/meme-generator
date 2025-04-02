@@ -10,12 +10,13 @@
 
 <body onload="onInit()">
     
-<header class="main-header">
+<header class="main-header grid">
     <div class="logo">logo</div>
-    <button class="gallery-btn">Gallery</button>
-    <button class="memes-btn">Memes</button>
+    <button class="gallery-btn" onclick="onGalleryClick()">Gallery</button>
+    <button class="memes-btn" onclick="onMemesClick()">Memes</button>
 </header>
 
+<div class="memes-container">
 
     <!-- canvas -->
     <div class="canvas-container">
@@ -26,13 +27,14 @@
     <label for="txt">txt</label>
     <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
     <input type="color" class="color-line" name="color" oninput="onChangeColor(event)">
-
-<button class="btn-increase" onclick="onCangeFontSize(true)">A+</button>
-<button class="btn-decrease" onclick="onCangeFontSize(false)">A-</button>
-<button class="btn-decrease" onclick="onAddLine()">add line</button>
-<button class="btn-decrease" onclick="changeSelectLine()">switch line</button>
-
+    
+    <button class="btn-increase" onclick="onCangeFontSize(true)">A+</button>
+    <button class="btn-decrease" onclick="onCangeFontSize(false)">A-</button>
+    <button class="btn-add-line" onclick="onAddLine()">add line</button>
+    <button class="btn-switch-line" onclick="changeSelectLine()">switch line</button>
+    
     <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
+</div>
 
 <div class="gallery-container">
     

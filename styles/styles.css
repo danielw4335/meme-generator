@@ -1,7 +1,7 @@
 /* BASICS */
 @import url(basics/base.css);
 @import url(basics/helpers.css);
-@import url(basics/layout.css);
+/* @import url(basics/layout.css); */
 
 /* COMPONENTS */
 @import url(components/canvas.css);

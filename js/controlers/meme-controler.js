@@ -98,7 +98,3 @@ gCtx.strokeRect(
 
 }
 
-// function onClick(ev) {
-//     const { offsetX, offsetY} = ev
-//     console.log({ offsetX, offsetY})
-// }
