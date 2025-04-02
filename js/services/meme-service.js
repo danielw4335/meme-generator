@@ -87,3 +87,60 @@ function changeSelectLine() {
     gMeme.lines[gMeme.selectedLineIdx].isSelected = true
     renderMeme()
 }
+
+// draw frame to the lines 
+function drawFrameLine(meme) {
+    if (!meme.txt || meme.txt.trim() === '') return
+    let y = meme.pos.y
+    let x = meme.pos.x
+    const metrics = gCtx.measureText(meme.txt)
+    const textWidth = metrics.width
+    const textHeight = meme.size * 1.2
+    const padding = 10
+    gCtx.strokeStyle = '#46FF32'
+    gCtx.lineWidth = 2
+    gCtx.strokeRect(
+        x - textWidth / 2 - padding,
+        y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+    )
+}
+
+// Check if the player clicked on the board
+function whenBoardClick(ev) {
+    const { offsetX, offsetY } = ev
+
+    const clickedLineIdx = gMeme.lines.findIndex(line => {
+        if (!line.frame) return false
+        return (
+            offsetX >= line.frame.x &&
+            offsetX <= line.frame.x + line.frame.width &&
+            offsetY >= line.frame.y &&
+            offsetY <= line.frame.y + line.frame.height
+        )
+    })
+
+    if (clickedLineIdx !== -1) {
+        gMeme.lines.forEach(line => line.isSelected = false)
+        gMeme.selectedLineIdx = clickedLineIdx
+        gMeme.lines[clickedLineIdx].isSelected = true
+        renderMeme()
+    }
+}
+
+// set position of lines 
+function setPosFrameLine(meme, x, y) {
+
+    const metrics = gCtx.measureText(meme.txt)
+    const textWidth = metrics.width
+    const textHeight = meme.size * 1.2
+    const padding = 10
+
+    let framePos = {
+        x: x - textWidth / 2 - padding,
+        y: y - textHeight / 2 - padding,
+        width: textWidth + padding * 2,
+        height: textHeight + padding * 2
+    }
+    meme.frame = framePos
+}
+

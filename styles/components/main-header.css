@@ -6,6 +6,7 @@
     /* place-items: center; */
     grid-template-areas: 
     "lo . mb . gb .";
+    margin-bottom:20px ;
 }
 
 .logo {

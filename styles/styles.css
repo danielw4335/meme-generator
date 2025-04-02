@@ -1,11 +1,16 @@
 /* BASICS */
 @import url(basics/base.css);
 @import url(basics/helpers.css);
-/* @import url(basics/layout.css); */
+@import url(basics/layout.css);
+
+/* PAGES */
+@import url(pages/gallery.css);
+
 
 /* COMPONENTS */
 @import url(components/canvas.css);
 @import url(components/main-header.css);
+@import url(components/img.css);
 
 
 

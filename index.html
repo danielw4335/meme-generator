@@ -20,9 +20,12 @@
 
     <!-- canvas -->
     <div class="canvas-container">
-        <canvas width="400" height="400" onclick="onClick(event)">
+        <canvas width="400" height="400" onclick="onClick(event)"  ontouchstart="onClick(event)">
         </canvas>
     </div>
+
+    <!-- onmousedown="onDown(event)"  onmouseup="onUp()"
+    ontouchend="onUp()" onmousemove="onDraw(event)" ontouchmove="onDraw(event)" -->
 
     <label for="txt">txt</label>
     <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
