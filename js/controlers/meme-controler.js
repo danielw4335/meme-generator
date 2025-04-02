@@ -17,23 +17,26 @@ function renderMeme() {
     meme.img.onload = () => {
         gElCanvas.height = (meme.img.naturalHeight / meme.img.naturalWidth) * gElCanvas.width
         gCtx.drawImage(meme.img, 0, 0, gElCanvas.width, gElCanvas.height)
-        
-        console.log(`'${meme.line.size}px Arial'`)
-        let x = 190
-        let y = 150
-        let line = meme.line
-        // console.log(line)
-        // console.log(gCtx)
-        // console.log( typeof line.size )
+        renderLines(gMeme)
+    }
+}
+
+function renderLines(gMeme) {
+    gMeme.lines.forEach(meme => {
+        let x = meme.pos.x
+        let y = meme.pos.y
         gCtx.lineWidth = 0.1
-        gCtx.strokeStyle = 'brown'
-        gCtx.fillStyle = line.color
-        gCtx.font = `${meme.line.size}px Arial`
+        gCtx.strokeStyle = 'red'
+        gCtx.fillStyle = meme.color
+        gCtx.font = `${meme.size}px Arial`
         gCtx.textAlign = 'center'
         gCtx.textBaseline = 'middle'
-        gCtx.fillText(line.txt, x, y)
-        gCtx.strokeText(line.txt, x, y)
-    }
+        gCtx.fillText(meme.txt, x, y)
+        gCtx.strokeText(meme.txt, x, y)
+        if(meme.isSelected)drawFrame(gMeme)
+    })
+
+
 }
 
 // btn download
@@ -51,9 +54,40 @@ function onChangeColor(ev) {
     let color = ev.target.value
     setLineColor(color)
 }
-   
+
 // set Font Size
 function onCangeFontSize(bool) {
     setFontSize(bool)
-// console.log(bool)
+    // console.log(bool)
+}
+
+// add new line
+function onAddLine() {
+    addLine()
+}
+
+// change select line
+function onCangeSelectLine() {
+    changeSelectLine()
+}
+
+// draw frame to the select line
+function drawFrame(gMeme) {
+    let meme = gMeme.lines[gMeme.selectedLineIdx]
+    if (!meme.txt || meme.txt.trim() === '') return
+    let y = meme.pos.y
+    let x = meme.pos.x
+    const metrics = gCtx.measureText(meme.txt)
+    const textWidth = metrics.width
+    const textHeight = meme.size * 1.2
+    const padding = 10
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 2
+
+    gCtx.strokeRect(
+        x - textWidth / 2 - padding,
+        y - textHeight / 2 - padding,
+        textWidth + padding * 2,
+        textHeight + padding * 2)
+
 }
