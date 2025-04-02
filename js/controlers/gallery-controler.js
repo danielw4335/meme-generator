@@ -2,14 +2,15 @@
 
 // render al gallery pictures
 function renderGallery() {
-let strHTMLS = `
-<img src=${gImgs[0].url} onclick="onImgSelect(this)" />
-<img src=${gImgs[0].url} onclick="onImgSelect(this)" />
-`
-let gallery = document.querySelector('.gallery-container').innerHTML = strHTMLS
-// console.log(gallery)
+    const strHTMLS = gImgs.map(img => `
+<img src=${img.url} id="${img.id}" onclick="onImgSelect(${img.id})" />
+`)
+// console.log(strHTMLS)
+    document.querySelector('.gallery-container').innerHTML = strHTMLS.join('')
 }
 
-// function onImgSelect(this) {
-// setImg() 
-// }
+// call to set img
+function onImgSelect(id) {
+// console.log(id)
+setImg(id)
+}
