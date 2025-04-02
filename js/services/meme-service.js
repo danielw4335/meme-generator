@@ -10,14 +10,14 @@ var gMeme = {
             txt: 'I sometimes eat Falafel',
             size: 20,
             color: '#000000',
-            pos: {x: 200, y: 100},
+            pos: { x: 200, y: 100 },
             isSelected: false
         },
         {
             txt: 'Lets enter text',
             size: 20,
             color: '#000000',
-            pos: {x: 200, y: 300},
+            pos: { x: 200, y: 300 },
             isSelected: false
         }
     ]
@@ -29,8 +29,8 @@ function getMeme() {
     let imgSrc = gImgs[gMeme.selectedImgId - 1].url
     let img = new Image()
     img.src = imgSrc
-   
-    return { img, line}
+
+    return { img, line }
 }
 
 // change change selectidx of line
@@ -38,7 +38,7 @@ function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
     renderMeme()
     gMeme.isFirstRender = false
-    
+
 }
 
 // change selectidx of img
@@ -60,30 +60,86 @@ function setFontSize(bool) {
     if (bool) gMeme.lines[gMeme.selectedLineIdx].size++
     else gMeme.lines[gMeme.selectedLineIdx].size--
     renderMeme()
-   
+
 }
 
 // add new line
 function addLine() {
-        const y = 100 + gMeme.lines.length * 20
-        gMeme.lines.push({
-            txt: 'enter text',
-            size: 20,
-            color: '#000000',
-            pos: { x: gElCanvas.width / 2, y},
-            isSelected: true
-        })
-        gMeme.selectedLineIdx = gMeme.lines.length - 1
-        renderMeme()
+    const y = 100 + gMeme.lines.length * 20
+    gMeme.lines.push({
+        txt: 'enter text',
+        size: 20,
+        color: '#000000',
+        pos: { x: gElCanvas.width / 2, y },
+        isSelected: true
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    renderMeme()
 }
 
 // change select line
 function changeSelectLine() {
     let res = gMeme.selectedLineIdx
     gMeme.lines[gMeme.selectedLineIdx].isSelected = false
-    if(res >= gMeme.lines.length-1){
+    if (res >= gMeme.lines.length - 1) {
         gMeme.selectedLineIdx = 0
-    }else gMeme.selectedLineIdx++
+    } else gMeme.selectedLineIdx++
     gMeme.lines[gMeme.selectedLineIdx].isSelected = true
     renderMeme()
+}
+
+// draw frame to the lines 
+function drawFrameLine(meme) {
+    if (!meme.txt || meme.txt.trim() === '') return
+    let y = meme.pos.y
+    let x = meme.pos.x
+    const metrics = gCtx.measureText(meme.txt)
+    const textWidth = metrics.width
+    const textHeight = meme.size * 1.2
+    const padding = 10
+    gCtx.strokeStyle = '#46FF32'
+    gCtx.lineWidth = 2
+    gCtx.strokeRect(
+        x - textWidth / 2 - padding,
+        y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+    )
+}
+
+// Check if the player clicked on the board
+function whenBoardClick(ev) {
+    const { offsetX, offsetY } = ev
+
+    const clickedLineIdx = gMeme.lines.findIndex(line => {
+        if (!line.frame) return false
+        return (
+            offsetX >= line.frame.x &&
+            offsetX <= line.frame.x + line.frame.width &&
+            offsetY >= line.frame.y &&
+            offsetY <= line.frame.y + line.frame.height
+        )
+    })
+
+    if (clickedLineIdx !== -1) {
+        gMeme.lines.forEach(line => line.isSelected = false)
+        gMeme.selectedLineIdx = clickedLineIdx
+        gMeme.lines[clickedLineIdx].isSelected = true
+        renderMeme()
+    }
+}
+
+// set position of lines 
+function setPosFrameLine(meme, x, y) {
+
+    const metrics = gCtx.measureText(meme.txt)
+    const textWidth = metrics.width
+    const textHeight = meme.size * 1.2
+    const padding = 10
+
+    let framePos = {
+        x: x - textWidth / 2 - padding,
+        y: y - textHeight / 2 - padding,
+        width: textWidth + padding * 2,
+        height: textHeight + padding * 2
+    }
+    meme.frame = framePos
 }
