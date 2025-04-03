@@ -130,6 +130,7 @@ function onChangeAlignText(th) {
 function onTextTop(th) {
     textTop(th.value)
 }
+
 function onTextBottom(th) {
     textBottom(th.value)
 }

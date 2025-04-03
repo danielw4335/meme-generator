@@ -48,6 +48,7 @@ function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
     gMeme.isFirstRender = true
     renderMeme()
+    onMemesClick()
 }
 
 // change the line color
@@ -181,6 +182,7 @@ function textTop(top) {
     renderMeme()
 
 }
+
 function textBottom(bottom) {
     gMeme.lines[gMeme.selectedLineIdx].pos.y += 5 
     renderMeme()

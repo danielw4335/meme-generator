@@ -6,11 +6,15 @@ function renderGallery() {
 <img src=${img.url} id="${img.id}" onclick="onImgSelect(${img.id})" />
 `)
 // console.log(strHTMLS)
-    document.querySelector('.gallery-container').innerHTML = strHTMLS.join('')
+    document.querySelector('.gallery-img').innerHTML = strHTMLS.join('')
 }
 
 // call to set img
 function onImgSelect(id) {
 // console.log(id)
 setImg(id)
+}
+
+function onRandomMeme() {
+    randomMeme()
 }

@@ -20,3 +20,10 @@ var gImgs = [
     { id: 17, url: 'img/17.jpg', keywords: ['funny', 'cat'] },
     { id: 18, url: 'img/18.jpg', keywords: ['funny', 'cat'] }
 ]
+
+function randomMeme() {
+    if (!gImgs || gImgs.length === 0) return null
+    const id = getRandomInt(gImgs.length)
+    onImgSelect(id)
+}
+
