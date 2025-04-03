@@ -1,5 +1,5 @@
 'use strict'
-
+var gIsSaved = false
 // render al gallery pictures
 function renderGallery() {
     const strHTMLS = gImgs.map(img => `
@@ -20,6 +20,9 @@ function onRandomMeme() {
 }
 
 function renderSavedMemes() {
-    let savedMemes = getFromStorage()
-    return filterSavedImg(savedMemes)
+     let iMgs = filterSavedImg()
+     let strHTMLS = iMgs.map(img => `
+        <img src=${img.url} id="${img.id}" onclick="onImgSelect(${img.id})" />
+        `)
+            document.querySelector('.gallery-img').innerHTML = strHTMLS.join('')     
 }

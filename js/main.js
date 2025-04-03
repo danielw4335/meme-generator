@@ -20,6 +20,7 @@ function onMemesClick() {
 }
 
 function onGalleryClick() {
+    renderGallery()
     let memes = document.querySelector('.memes-container')
     memes.classList.add('hidden')
     
