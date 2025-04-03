@@ -7,7 +7,9 @@ var gCtx
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    console.log('gCtx:', gCtx)
+
+    resizeCanvas()
+    drawCharts()
 }
 
 function onClick(ev) {
@@ -17,14 +19,20 @@ function onClick(ev) {
 // add img to the canvas
 function renderMeme() {
     let meme = getMeme()
-    // console.log(meme.line)
+
     meme.img.onload = () => {
-        gElCanvas.height = (meme.img.naturalHeight / meme.img.naturalWidth) * gElCanvas.width
+        const container = document.querySelector('.canvas-container')
+
+        gElCanvas.width = container.clientWidth
+        gElCanvas.height = container.clientHeight
+
         gCtx.drawImage(meme.img, 0, 0, gElCanvas.width, gElCanvas.height)
+
         renderLines(gMeme)
     }
 }
 
+// render line to the canvas
 function renderLines(gMeme) {
     gMeme.lines.forEach(meme => {
         let x = meme.pos.x
@@ -41,7 +49,7 @@ function renderLines(gMeme) {
         setPosFrameLine(meme, x, y)
         if (meme.isSelected) lineIsSelect(gMeme)
     })
- 
+
 
 }
 
@@ -50,7 +58,6 @@ function onDownloadMeme(elLink) {
     const dataUrl = gElCanvas.toDataURL()
     console.log('dataUrl:', dataUrl)
     elLink.href = dataUrl
-    // Set a name for the downloaded file
     elLink.download = 'my-meme'
 }
 
@@ -64,7 +71,6 @@ function onChangeColor(ev) {
 // set Font Size
 function onCangeFontSize(bool) {
     setFontSize(bool)
-    // console.log(bool)
 }
 
 // add new line
@@ -92,8 +98,8 @@ function lineIsSelect(gMeme) {
     const padding = 10
 
     let frameX
-    
-    switch(meme.align) {
+
+    switch (meme.align) {
         case 'left':
             frameX = x
             break;
@@ -105,22 +111,21 @@ function lineIsSelect(gMeme) {
             frameX = x - textWidth / 2
             break
     }
-    
+
     gCtx.strokeStyle = '#00000f'
     gCtx.lineWidth = 2
     gCtx.strokeRect(
         frameX - padding,
-        y - textHeight / 2 - padding, 
-        textWidth + padding * 2, 
+        y - textHeight / 2 - padding,
+        textWidth + padding * 2,
         textHeight + padding * 2
     )
     console.log(gCtx.strokeRect)
 }
 
 // changing font family
-function onChangeFontFamily(th){
-// console.log(th.value)
-changeFontFamily(th)
+function onChangeFontFamily(th) {
+    changeFontFamily(th)
 }
 
 // change align text 
@@ -160,25 +165,3 @@ function renderSavedMemes() {
     if (!savedMemes || savedMemes.length === 0) return []
     return savedMemes.map(meme => meme.line)
 }
-
-// !_____________________
-//?? function getEvPos(ev) {
-//     const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
-
-//     let pos = {
-//         x: ev.offsetX,
-//         y: ev.offsetY,
-//     }
-
-//     if (TOUCH_EVS.includes(ev.type)) {
-//         ev.preventDefault()
-
-//         ev = ev.changedTouches[0]
-
-//         pos = {
-//             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-//             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-//         }
-//     }
-//     return pos
-//?? }

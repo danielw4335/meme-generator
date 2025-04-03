@@ -1,42 +1,48 @@
-.editor-container {
+.memes-container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    border: solid 3px black;
-    background-color: darkgray;
+    gap: 10px;
+}
+
+.editor-container {
+    padding: 10px;
+    gap: 10px;
+    font-size: 0.9rem;
+    height: auto;
+    min-height: 300px;
+    overflow-y: auto;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 .btn-line-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
     justify-items: center;
     background-color: beige;
-border-radius: 8px;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 10px 0;
 }
 
 .inputTxt-container {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 10px;
 }
 
+
 .inputTxt {
-    flex: 1;
+    width: 100%;
     padding: 8px;
-    margin: 0 10%;
     height: 40px;
-    width: 50px;
     text-align: center;
-    font-size: 20px;
-    font-weight: 800;
-    font-family: cursive;
-    border-radius: 14px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
 }
 
 .btn-control-line-container {
@@ -45,25 +51,22 @@ border-radius: 8px;
     align-items: center;
     text-align: center;
     gap: 15px;
-    
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.btn1 {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(183, 185, 217);
-    /* border: none; */
+.btn1,
+.btn2 {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
     border-radius: 8px;
     cursor: pointer;
+    background-color: rgb(183, 185, 217);
 }
 
 .btn2 {
-    width: 50px;
-    height: 50px;
     background-color: rgb(255, 255, 255);
-    /* border: none; */
-    border-radius: 8px;
-    cursor: pointer;
 }
 
 .btn1:hover,
@@ -73,14 +76,16 @@ border-radius: 8px;
 }
 
 .change-font {
-    width: 200px;
+    width: 90%;
+    max-width: 250px;
     height: 40px;
     border-radius: 6px;
-    font-size: x-large;
-    padding-left: 30px;
+    font-size: 1.1rem;
+    padding: 8px;
     letter-spacing: 8px;
     font-weight: 700;
-    grid-column: span 2 ;
+    text-align: center;
+    grid-column: span 2;
 }
 
 .btn-save-meme,
@@ -97,6 +102,7 @@ border-radius: 8px;
     border: none;
 }
 
+
 .btn-download {
     display: flex;
     justify-content: center;
@@ -109,4 +115,10 @@ border-radius: 8px;
     justify-content: space-between;
     margin-top: 10px;
     gap: 15px;
+}
+
+.font-select-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

@@ -1,7 +1,69 @@
-@media (max-width: 640px) {}
+@media (max-width: 640px) {
+  body {
+    height: 100vh;
+  }
 
-@media (min-width: 640px) {}
+  .canvas-container {
+    max-height: 300px;
+  }
 
-@media (min-width: 930px) {}
+  .btn1,
+  .btn2 {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
 
-@media (min-width: 1100px) {}
+  .btn-control-line-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .change-font {
+    width: 100%;
+    max-width: 250px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (min-width: 640px) {
+  .memes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-items: start;
+  }
+
+  .canvas-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 450px;
+  }
+
+  .editor-container {
+    height: 100%;
+    max-height: 450px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 930px) {
+  .memes-container {
+    grid-template-columns: 3fr 2fr;
+    gap: 30px;
+  }
+
+  .canvas-container {
+    max-height: 500px;
+  }
+
+  .editor-container {
+    padding: 20px;
+  }
+
+  .btn-line-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}

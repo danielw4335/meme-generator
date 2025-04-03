@@ -30,6 +30,7 @@ function randomMeme() {
     onImgSelect(id)
 }
 
+// set filter img in gallery
 function setfilterImg(txt) {
     if (!txt) return gImgs
 
@@ -38,7 +39,7 @@ function setfilterImg(txt) {
         img.keywords.some(keyword => keyword.toLowerCase().includes(txt))
     )
     console.log(filteredImages)
-    if(!filteredImages.length) filteredImages = [{id: 19, url: 'img/00100.webp'}]
+    if (!filteredImages.length) filteredImages = [{ id: 19, url: 'img/00100.webp' }]
     return filteredImages
 }
 

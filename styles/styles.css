@@ -6,6 +6,7 @@
 /* PAGES */
 @import url(pages/gallery.css);
 @import url(pages/memes.css);
+
 /* COMPONENTS */
 @import url(components/canvas.css);
 @import url(components/main-header.css);
@@ -14,7 +15,3 @@
 
 /* setup */
 @import url(setup/mq.css);
-
-
-
-

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,76 +10,77 @@
 </head>
 
 <body onload="onInit()">
-    
+
+    <!-- main header -->
     <header class="main-header grid">
         <div class="logo">logo</div>
         <button class="gallery-btn" onclick="onGalleryClick()">Gallery</button>
         <button class="memes-btn" onclick="onMemesClick()">Memes</button>
         <button class="btn-saved" onclick="renderSavedMemes(this)">saved Memes</button>
-</header>
+    </header>
 
-<div class="memes-container">
+    <!-- memes page -->
+    <div class="memes-container">
 
-    <!-- canvas -->
-    <div class="canvas-container">
-        <canvas width="500" height="500" onclick="onClick(event)"  ontouchstart="onClick(event)">
-        </canvas>
+        <!-- canvas -->
+        <div class="canvas-container">
+            <canvas onclick="onClick(event)" ontouchstart="onClick(event)">
+            </canvas>
+        </div>
+
+        <!-- all edit control -->
+        <div class="editor-container">
+            <!-- change txt -->
+            <div class="inputTxt-container">
+                <input type="text" id="txt" placeholder="Let's have fun" class="inputTxt"
+                    oninput="setLineTxt(this.value)">
+            </div>
+
+            <div class="btn-control-line-container">
+                <button class="btn-add-line btn1" onclick="onAddLine()">add line</button>
+                <button class="btn-switch-line btn1" onclick="changeSelectLine()">switch line</button>
+                <button class="btn-delete-line btn1" onclick="onDeleteLine(this)">Delete</button>
+            </div>
+
+            <div class="btn-line-container">
+                <input type="color" class="color-line btn2" name="color" oninput="onChangeColor(event)">
+                <button class="btn-increase btn2" onclick="onCangeFontSize(true)">A+</button>
+                <button class="btn-decrease btn2" onclick="onCangeFontSize(false)">A-</button>
+                <button class="btn-align-left btn2" value="left" onclick="onChangeAlignText(this)">left</button>
+                <button class="btn-align-center btn2" value="center" onclick="onChangeAlignText(this)">center</button>
+                <button class="btn-align-right btn2" value="right" onclick="onChangeAlignText(this)">right</button>
+                <button class="btn-line-top btn2" value="5" onclick="onTextTop(this)">up</button>
+                <button class="btn-line-bottom btn2" value="5" onclick="onTextBottom(this)">down</button>
+            </div>
+            <!-- change fonts -->
+            <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Impact">Impact</option>
+            </select>
+
+            <div class="main-buttons-container">
+                <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
+                <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
+            </div>
+        </div>
     </div>
 
-    <!-- onmousedown="onDown(event)"  onmouseup="onUp()"
-    ontouchend="onUp()" onmousemove="onDraw(event)" ontouchmove="onDraw(event)" -->
-<div class="editor-container">
-    
-    
-    <div class="inputTxt-container">
-    <input type="text" id="txt" placeholder="Let's have fun" class="inputTxt" oninput="setLineTxt(this.value)">
-</div>
-
-<div class="btn-control-line-container">
-    <button class="btn-add-line btn1" onclick="onAddLine()">add line</button>
-    <button class="btn-switch-line btn1" onclick="changeSelectLine()">switch line</button>
-    <button class="btn-delete-line btn1" onclick="onDeleteLine(this)">Delete</button>
-</div> 
-
-<div class="btn-line-container">    
-    <input type="color" class="color-line btn2" name="color" oninput="onChangeColor(event)">
-    <button class="btn-increase btn2" onclick="onCangeFontSize(true)">A+</button>
-    <button class="btn-decrease btn2" onclick="onCangeFontSize(false)">A-</button>
-    <button class="btn-align-left btn2" value="left" onclick="onChangeAlignText(this)">left</button>
-    <button class="btn-align-center btn2" value="center" onclick="onChangeAlignText(this)">center</button>
-    <button class="btn-align-right btn2" value="right" onclick="onChangeAlignText(this)">right</button>
-    <button class="btn-line-top btn2" value="5" onclick="onTextTop(this)">up</button>
-    <button class="btn-line-bottom btn2" value="5" onclick="onTextBottom(this)">down</button>
-    <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
-       <option value="Arial">Arial</option>
-       <option value="Verdana">Verdana</option>
-       <option value="Impact">Impact</option>
-    </select>
-</div>
-
-    
-<div class="main-buttons-container">
-    <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
-    <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
-</div>    
-
-</div>
-</div>
-
-<div class="gallery-container hidden">
-     <div class="btn-gallery-container">
-         <button class="btn" onclick="onRandomMeme(this)">random</button>
-         <input type="text" id="txt" placeholder="What are you looking for?" class="filtert-txt" oninput="onSetfilterImg(this)">
-        </div> 
-        <div class="gallery-img">
+    <!-- gallery page -->
+    <div class="gallery-container hidden">
+        <div class="btn-gallery-container">
+            <button class="btn" onclick="onRandomMeme(this)">random</button>
+            <input type="text" id="txt" placeholder="What are you looking for?" class="filtert-txt"
+                oninput="onSetfilterImg(this)">
         </div>
-</div>
+        <div class="gallery-img"></div>
+    </div>
 
-<script src="js/utils.js"></script>
-<script src="js/main.js"></script>
-<script src="js/controlers/meme-controler.js"></script>
-<script src="js/controlers/gallery-controler.js"></script>
-<script src="js/services/meme-service.js"></script>
-<script src="js/services/gallery-service.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controlers/meme-controler.js"></script>
+    <script src="js/controlers/gallery-controler.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
 </body>
 </html>

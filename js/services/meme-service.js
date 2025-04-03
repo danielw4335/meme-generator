@@ -12,7 +12,7 @@ var gMeme = {
             size: 20,
             color: '#000000',
             align: 'center',
-            pos: {x: 200, y: 100},
+            pos: { x: 200, y: 100 },
             isSelected: false
         },
         {
@@ -20,7 +20,7 @@ var gMeme = {
             size: 20,
             color: '#000000',
             align: 'center',
-            pos: {x: 200, y: 300},
+            pos: { x: 200, y: 300 },
             isSelected: false
         }
     ]
@@ -34,8 +34,8 @@ function getMeme() {
     let imgSrc = gImgs[gMeme.selectedImgId - 1].url
     let img = new Image()
     img.src = imgSrc
-   
-    return {img, line}
+
+    return { img, line }
 }
 
 // change change selectidx of line
@@ -43,7 +43,7 @@ function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
     renderMeme()
     gMeme.isFirstRender = false
-    
+
 }
 
 // change selectidx of img
@@ -66,31 +66,31 @@ function setFontSize(bool) {
     if (bool) gMeme.lines[gMeme.selectedLineIdx].size++
     else gMeme.lines[gMeme.selectedLineIdx].size--
     renderMeme()
-   
+
 }
 
 // add new line
 function addLine() {
-        const y = 100 + gMeme.lines.length * 20
-        gMeme.lines.push({
-            txt: 'enter text',
-            size: 20,
-            color: '#000000',
-            align: 'center',
-            pos: { x: gElCanvas.width / 2, y},
-            isSelected: true
-        })
-        gMeme.selectedLineIdx = gMeme.lines.length - 1
-        renderMeme()
+    const y = 100 + gMeme.lines.length * 20
+    gMeme.lines.push({
+        txt: 'enter text',
+        size: 20,
+        color: '#000000',
+        align: 'center',
+        pos: { x: gElCanvas.width / 2, y },
+        isSelected: true
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    renderMeme()
 }
 
 // change select line
 function changeSelectLine() {
     let res = gMeme.selectedLineIdx
     gMeme.lines[gMeme.selectedLineIdx].isSelected = false
-    if(res >= gMeme.lines.length-1){
+    if (res >= gMeme.lines.length - 1) {
         gMeme.selectedLineIdx = 0
-    }else gMeme.selectedLineIdx++
+    } else gMeme.selectedLineIdx++
     gMeme.lines[gMeme.selectedLineIdx].isSelected = true
     renderMeme()
 }
@@ -140,10 +140,10 @@ function setPosFrameLine(meme, x, y) {
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
-    
+
     let frameX;
-    
-    switch(meme.align) {
+
+    switch (meme.align) {
         case 'left':
             frameX = x
             break
@@ -155,22 +155,21 @@ function setPosFrameLine(meme, x, y) {
             frameX = x - textWidth / 2
             break
     }
-    
+
     let framePos = {
         x: frameX - padding,
         y: y - textHeight / 2 - padding,
         width: textWidth + padding * 2,
         height: textHeight + padding * 2
     }
-    
+
     meme.frame = framePos
 }
 
 // change font family
 function changeFontFamily(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font.value
-   console.log(gMeme.lines) 
-   renderMeme()
+    renderMeme()
 }
 
 // change align text
@@ -181,41 +180,40 @@ function changeAlignText(align) {
 
 // add to y pos 5px 
 function textTop(top) {
-    gMeme.lines[gMeme.selectedLineIdx].pos.y -= 5 
+    gMeme.lines[gMeme.selectedLineIdx].pos.y -= 5
     renderMeme()
-    
 }
 
 // subtract to y pos 5px 
 function textBottom(bottom) {
-    gMeme.lines[gMeme.selectedLineIdx].pos.y += 5 
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += 5
     renderMeme()
 }
 
 // delete selected line
 function deleteLine() {
-    gMeme.lines.splice(gMeme.selectedLineIdx,1);
-    gMeme.selectedLineIdx =  gMeme.selectedLineIdx = 0
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    gMeme.selectedLineIdx = gMeme.selectedLineIdx = 0
     renderMeme()
 }
 
 // save meme to global varaible and to local
 function saveMeme() {
-   let idImg = gMeme.selectedImgId
-   let line = gMeme.lines[gMeme.selectedLineIdx]
+    let idImg = gMeme.selectedImgId
+    let line = gMeme.lines[gMeme.selectedLineIdx]
 
-   let imgData = canvasToUrl()
-gSavedMemes.push({
-    id: idImg,
-    line,
-    imgData
-})
-saveToStorage(MEME_KEY, gSavedMemes)
+    let imgData = canvasToUrl()
+    gSavedMemes.push({
+        id: idImg,
+        line,
+        imgData
+    })
+    saveToStorage(MEME_KEY, gSavedMemes)
 }
 
 // pull from storage
 function getFromStorage() {
-   gSavedMemes = loadFromStorage(MEME_KEY)
-   return gSavedMemes
+    gSavedMemes = loadFromStorage(MEME_KEY)
+    return gSavedMemes
 }
 

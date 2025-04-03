@@ -11,7 +11,7 @@ function renderGallery(txt) {
 
 // call to set img
 function onImgSelect(id) {
-setImg(id)
+    setImg(id)
 }
 
 // call to random meme
@@ -23,17 +23,15 @@ function onRandomMeme() {
 function renderSavedImgs() {
     let memes = document.querySelector('.memes-container')
     memes.classList.add('hidden')
-    
+
     let gallery = document.querySelector('.gallery-container')
     gallery.classList.remove('hidden')
 
-     let iMgs = getFromStorage()
-     console.log(iMgs)
-     let strHTMLS = iMgs.map((meme, index) =>  `
+    let iMgs = getFromStorage()
+    console.log(iMgs)
+    let strHTMLS = iMgs.map((meme, index) => `
                     <img src="${meme.imgData}" id="saved-${meme.id}" onclick="onImgSelect(${index})" />   `)
-            document.querySelector('.gallery-img').innerHTML = strHTMLS.join('')  
-               
-          
+    document.querySelector('.gallery-img').innerHTML = strHTMLS.join('')
 }
 
 function onSetfilterImg(th) {

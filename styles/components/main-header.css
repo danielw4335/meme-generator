@@ -3,9 +3,9 @@
     height: 40px;
     background-color: bisque;
     grid-template-columns: 4fr 8fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "lo . bs . mb . gb .";
-    margin-bottom:20px ;
+    grid-template-areas:
+        "lo . bs . mb . gb .";
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -15,11 +15,13 @@
     font-size: 33px;
     padding-left: 10px;
 }
+
 .gallery-btn {
     grid-area: gb;
     background-color: transparent;
     border-bottom: none;
 }
+
 .memes-btn {
     grid-area: mb;
     background-color: transparent;

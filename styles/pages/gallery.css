@@ -1,9 +1,20 @@
-.gallery-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    flex-shrink: 5;
-    justify-content: center;
-    flex-direction: row;
-    
+.gallery-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery-img img {
+    padding-left: 10px;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.gallery-img img:hover {
+    transform: scale(1.05);
 }
