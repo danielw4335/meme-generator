@@ -27,24 +27,28 @@
     <!-- onmousedown="onDown(event)"  onmouseup="onUp()"
     ontouchend="onUp()" onmousemove="onDraw(event)" ontouchmove="onDraw(event)" -->
 <div class="editor-container">
-
+    
+    
+    <div class="inputTxt-container">
     <label for="txt">txt</label>
     <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
-    <input type="color" class="color-line" name="color" oninput="onChangeColor(event)">
-    
-    <button class="btn-increase" onclick="onCangeFontSize(true)">A+</button>
-    <button class="btn-decrease" onclick="onCangeFontSize(false)">A-</button>
-    <button class="btn-add-line" onclick="onAddLine()">add line</button>
-    <button class="btn-switch-line" onclick="changeSelectLine()">switch line</button>
+</div>
 
-    <button class="btn-align-left" value="left" onclick="onChangeAlignText(this)">left</button>
-    <button class="btn-align-center" value="center" onclick="onChangeAlignText(this)">center</button>
-    <button class="btn-align-right" value="right" onclick="onChangeAlignText(this)">right</button>
 
-    <button class="btn-line-top" value="5" onclick="onTextTop(this)">up</button>
-    <button class="btn-line-bottom" value="5" onclick="onTextBottom(this)">down</button>
+<button class="btn-add-line btn1" onclick="onAddLine()">add line</button>
+<button class="btn-switch-line btn1" onclick="changeSelectLine()">switch line</button>
+<button class="btn-delete-line btn1" onclick="onDeleteLine(this)">Delete</button>
+
+<input type="color" class="color-line btn2" name="color" oninput="onChangeColor(event)">
+    <button class="btn-increase btn2" onclick="onCangeFontSize(true)">A+</button>
+    <button class="btn-decrease btn2" onclick="onCangeFontSize(false)">A-</button>
+    <button class="btn-align-left btn2" value="left" onclick="onChangeAlignText(this)">left</button>
+    <button class="btn-align-center btn2" value="center" onclick="onChangeAlignText(this)">center</button>
+    <button class="btn-align-right btn2" value="right" onclick="onChangeAlignText(this)">right</button>
+    <button class="btn-line-top btn2" value="5" onclick="onTextTop(this)">up</button>
+    <button class="btn-line-bottom btn2" value="5" onclick="onTextBottom(this)">down</button>
+
     
-    <button class="btn-delete-line" onclick="onDeleteLine(this)">Delete</button>
     
     <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
     
