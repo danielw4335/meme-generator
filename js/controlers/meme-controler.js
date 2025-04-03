@@ -139,6 +139,10 @@ function onDeleteLine() {
     deleteLine()
 }
 
+function onSaveMeme() {
+    saveMeme()
+}
+
 // !_____________________
 //?? function getEvPos(ev) {
 //     const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']

@@ -18,3 +18,8 @@ setImg(id)
 function onRandomMeme() {
     randomMeme()
 }
+
+function renderSavedMemes() {
+    let savedMemes = getFromStorage()
+    return filterSavedImg(savedMemes)
+}

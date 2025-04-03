@@ -27,3 +27,13 @@ function randomMeme() {
     onImgSelect(id)
 }
 
+function filterSavedImg(savedMemes) {
+    // let savedMemes = getFromStorage()
+    if (!savedMemes || savedMemes.length === 0) return []
+    
+    const savedIds = savedMemes.map(meme => meme.id)
+    
+    const filteredImages = gImgs.filter(img => savedIds.includes(img.id))
+    console.log(filteredImages)
+    return filteredImages
+}

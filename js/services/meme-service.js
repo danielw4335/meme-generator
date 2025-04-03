@@ -1,6 +1,7 @@
 'use strict'
 // varaible
 
+const MEME_KEY = 'memeSAVE'
 var gMeme = {
     isFirstRender: true,
     selectedImgId: 0,
@@ -25,6 +26,8 @@ var gMeme = {
     ]
 }
 
+var gSavedMemes = []
+
 // find meme by idx
 function getMeme() {
     let line = gMeme.lines[gMeme.selectedLineIdx]
@@ -32,7 +35,7 @@ function getMeme() {
     let img = new Image()
     img.src = imgSrc
    
-    return { img, line}
+    return {img, line}
 }
 
 // change change selectidx of line
@@ -192,4 +195,20 @@ function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx,1);
     gMeme.selectedLineIdx =  gMeme.selectedLineIdx = 0
     renderMeme()
+}
+
+function saveMeme() {
+   let idImg = gMeme.selectedImgId
+   let line = gMeme.lines[gMeme.selectedLineIdx]
+gSavedMemes.push({
+    id: idImg,
+    line
+})
+console.log(gSavedMemes)
+saveToStorage(MEME_KEY, gSavedMemes)
+}
+
+function getFromStorage() {
+   gSavedMemes = loadFromStorage(MEME_KEY)
+   return gSavedMemes
 }

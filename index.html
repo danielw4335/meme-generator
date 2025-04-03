@@ -45,7 +45,9 @@
     <button class="btn-line-bottom" value="5" onclick="onTextBottom(this)">down</button>
     
     <button class="btn-delete-line" onclick="onDeleteLine(this)">Delete</button>
-
+    
+    <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
+    
 <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
    <option value="Arial">Arial</option>
    <option value="Verdana">Verdana</option>
@@ -59,6 +61,7 @@
 <div class="gallery-container hidden">
      <div class="btn-gallery-container">
          <button class="btn" onclick="onRandomMeme(this)">random</button>
+         <button class="btn-saved" onclick="renderSavedMemes(this)">saved Memes</button>
         </div> 
         <div class="gallery-img">
         </div>
