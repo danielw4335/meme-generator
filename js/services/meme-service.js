@@ -10,6 +10,7 @@ var gMeme = {
             txt: 'I sometimes eat Falafel',
             size: 20,
             color: '#000000',
+            align: 'center',
             pos: {x: 200, y: 100},
             isSelected: false
         },
@@ -17,6 +18,7 @@ var gMeme = {
             txt: 'Lets enter text',
             size: 20,
             color: '#000000',
+            align: 'center',
             pos: {x: 200, y: 300},
             isSelected: false
         }
@@ -70,6 +72,7 @@ function addLine() {
             txt: 'enter text',
             size: 20,
             color: '#000000',
+            align: 'center',
             pos: { x: gElCanvas.width / 2, y},
             isSelected: true
         })
@@ -144,3 +147,32 @@ function setPosFrameLine(meme, x, y) {
     meme.frame = framePos
 }
 
+
+function changeFontFamily(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font.value
+   console.log(gMeme.lines) 
+   renderMeme()
+}
+
+// !-----------------------
+function changeAlignText(align) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align
+    renderMeme()
+}
+// !-------------------------
+
+function textTop(top) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.y -= 5 
+    renderMeme()
+
+}
+function textBottom(bottom) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += 5 
+    renderMeme()
+}
+
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx,1);
+    gMeme.selectedLineIdx =  gMeme.selectedLineIdx = 0
+    renderMeme()
+}

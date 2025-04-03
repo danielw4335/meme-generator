@@ -29,19 +29,19 @@ function renderLines(gMeme) {
     gMeme.lines.forEach(meme => {
         let x = meme.pos.x
         let y = meme.pos.y
-        // console.log('x line, y line:', x, y)
+        console.log('x line, y line:', x, y)
         gCtx.lineWidth = 0.1
         gCtx.strokeStyle = 'red'
         gCtx.fillStyle = meme.color
-        gCtx.font = `${meme.size}px Arial`
-        gCtx.textAlign = 'center'
+        gCtx.font = `${meme.size}px ${meme.font}`
+        gCtx.textAlign = `${meme.align}`
         gCtx.textBaseline = 'middle'
         gCtx.fillText(meme.txt, x, y)
         gCtx.strokeText(meme.txt, x, y)
         setPosFrameLine(meme, x, y)
         if (meme.isSelected) lineIsSelect(gMeme)
     })
-
+ 
 
 }
 
@@ -83,7 +83,6 @@ function lineIsSelect(gMeme) {
     document.querySelector('.inputTxt').value = `${meme.txt}`
     document.querySelector('.color-line').value = `${meme.color}`
 
-
     if (!meme.txt || meme.txt.trim() === '') return
     let y = meme.pos.y
     let x = meme.pos.x
@@ -91,16 +90,35 @@ function lineIsSelect(gMeme) {
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
-    gCtx.strokeStyle = '#46FF32'
+    gCtx.strokeStyle = '#00000f'
     gCtx.lineWidth = 2
-gCtx.strokeRect(
-    x - textWidth / 2 - padding,
-    y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
-)
+    gCtx.strokeRect(
+        x - textWidth / 2 - padding,
+        y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+    )
     console.log(gCtx.strokeRect)
-
 }
 
+// changing font family
+function onChangeFontFamily(th){
+// console.log(th.value)
+changeFontFamily(th)
+}
+
+function onChangeAlignText(th) {
+    changeAlignText(th.value)
+}
+
+function onTextTop(th) {
+    textTop(th.value)
+}
+function onTextBottom(th) {
+    textBottom(th.value)
+}
+
+function onDeleteLine() {
+    deleteLine()
+}
 
 // !_____________________
 //?? function getEvPos(ev) {

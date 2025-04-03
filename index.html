@@ -20,12 +20,13 @@
 
     <!-- canvas -->
     <div class="canvas-container">
-        <canvas width="400" height="400" onclick="onClick(event)"  ontouchstart="onClick(event)">
+        <canvas width="500" height="500" onclick="onClick(event)"  ontouchstart="onClick(event)">
         </canvas>
     </div>
 
     <!-- onmousedown="onDown(event)"  onmouseup="onUp()"
     ontouchend="onUp()" onmousemove="onDraw(event)" ontouchmove="onDraw(event)" -->
+<div class="editor-container">
 
     <label for="txt">txt</label>
     <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
@@ -35,11 +36,27 @@
     <button class="btn-decrease" onclick="onCangeFontSize(false)">A-</button>
     <button class="btn-add-line" onclick="onAddLine()">add line</button>
     <button class="btn-switch-line" onclick="changeSelectLine()">switch line</button>
+
+    <button class="btn-align-left" value="right" onclick="onChangeAlignText(this)">left</button>
+    <button class="btn-align-center" value="center" onclick="onChangeAlignText(this)">center</button>
+    <button class="btn-align-right" value="left" onclick="onChangeAlignText(this)">right</button>
     
+    <button class="btn-line-top" value="5" onclick="onTextTop(this)">up</button>
+    <button class="btn-line-bottom" value="5" onclick="onTextBottom(this)">down</button>
+    
+    <button class="btn-delete-line" onclick="onDeleteLine(this)">Delete</button>
+
+<select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
+   <option value="Arial">Arial</option>
+   <option value="Verdana">Verdana</option>
+   <option value="Impact">Impact</option>
+</select>
+
     <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
 </div>
+</div>
 
-<div class="gallery-container">
+<div class="gallery-container hidden">
     
 </div>
 

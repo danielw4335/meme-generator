@@ -1,9 +1,8 @@
-.canvas-container {
-display: grid;
-/* place-items: center; */
-justify-content: center;
-}
-
 canvas {
     border: 1px solid black;
+}
+
+.canvas-container {
+    width: 500px;
+    height: 500px;
 }
