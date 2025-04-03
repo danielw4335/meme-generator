@@ -21,16 +21,17 @@ var gImgs = [
     { id: 18, url: 'img/18.jpg', keywords: ['funny', 'cat'] }
 ]
 
+// get random meme
 function randomMeme() {
     if (!gImgs || gImgs.length === 0) return null
     const id = getRandomInt(gImgs.length)
     onImgSelect(id)
 }
 
-function filterSavedImg() {
-    let savedMemes = getFromStorage()
-    if (!savedMemes || savedMemes.length === 0) return []
-    const savedIds = savedMemes.map(meme => meme.id)
-    const filteredImages = gImgs.filter(img => savedIds.includes(img.id))
-    return filteredImages
-}
+// function filterSavedImg() {
+//     let savedMemes = getFromStorage()
+//     if (!savedMemes || savedMemes.length === 0) return []
+//     const savedIds = savedMemes.map(meme => meme.id)
+//     const filteredImages = gImgs.filter(img => savedIds.includes(img.id))
+//     return filteredImages
+// }

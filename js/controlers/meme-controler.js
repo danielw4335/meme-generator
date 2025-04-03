@@ -123,24 +123,42 @@ function onChangeFontFamily(th){
 changeFontFamily(th)
 }
 
+// change align text 
 function onChangeAlignText(th) {
     changeAlignText(th.value)
 }
 
+// cal to text top
 function onTextTop(th) {
     textTop(th.value)
 }
 
+// cal to text bottom
 function onTextBottom(th) {
     textBottom(th.value)
 }
 
+// call to delete line
 function onDeleteLine() {
     deleteLine()
 }
 
+// save meme to local storage
 function onSaveMeme() {
     saveMeme()
+}
+
+// change the img to url  
+function canvasToUrl() {
+    return gElCanvas.toDataURL()
+}
+
+// render save memes
+function renderSavedMemes() {
+    let savedMemes = getFromStorage()
+    renderSavedImgs()
+    if (!savedMemes || savedMemes.length === 0) return []
+    return savedMemes.map(meme => meme.line)
 }
 
 // !_____________________

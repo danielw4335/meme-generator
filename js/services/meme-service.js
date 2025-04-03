@@ -166,48 +166,54 @@ function setPosFrameLine(meme, x, y) {
     meme.frame = framePos
 }
 
-
+// change font family
 function changeFontFamily(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font.value
    console.log(gMeme.lines) 
    renderMeme()
 }
 
-// !-----------------------
+// change align text
 function changeAlignText(align) {
     gMeme.lines[gMeme.selectedLineIdx].align = align
     renderMeme()
 }
-// !-------------------------
 
+// add to y pos 5px 
 function textTop(top) {
     gMeme.lines[gMeme.selectedLineIdx].pos.y -= 5 
     renderMeme()
-
+    
 }
 
+// subtract to y pos 5px 
 function textBottom(bottom) {
     gMeme.lines[gMeme.selectedLineIdx].pos.y += 5 
     renderMeme()
 }
 
+// delete selected line
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx,1);
     gMeme.selectedLineIdx =  gMeme.selectedLineIdx = 0
     renderMeme()
 }
 
+// save meme to global varaible and to local
 function saveMeme() {
    let idImg = gMeme.selectedImgId
    let line = gMeme.lines[gMeme.selectedLineIdx]
+
+   let imgData = canvasToUrl()
 gSavedMemes.push({
     id: idImg,
-    line
+    line,
+    imgData
 })
-console.log(gSavedMemes)
 saveToStorage(MEME_KEY, gSavedMemes)
 }
 
+// pull from storage
 function getFromStorage() {
    gSavedMemes = loadFromStorage(MEME_KEY)
    return gSavedMemes

@@ -11,14 +11,17 @@ function onInit() {
     renderGallery()
 }
 
+// move to meme page
 function onMemesClick() {
     let gallery = document.querySelector('.gallery-container')
     gallery.classList.add('hidden')
-
+    
     let memes = document.querySelector('.memes-container')
     memes.classList.remove('hidden')
 }
 
+
+// move to gallery page
 function onGalleryClick() {
     renderGallery()
     let memes = document.querySelector('.memes-container')
