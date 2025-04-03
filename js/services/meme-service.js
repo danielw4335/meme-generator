@@ -132,18 +132,33 @@ function whenBoardClick(ev) {
 
 // set position of lines 
 function setPosFrameLine(meme, x, y) {
-
     const metrics = gCtx.measureText(meme.txt)
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
-
+    
+    let frameX;
+    
+    switch(meme.align) {
+        case 'left':
+            frameX = x
+            break
+        case 'right':
+            frameX = x - textWidth;
+            break
+        case 'center':
+        default:
+            frameX = x - textWidth / 2
+            break
+    }
+    
     let framePos = {
-        x: x - textWidth / 2 - padding,
+        x: frameX - padding,
         y: y - textHeight / 2 - padding,
         width: textWidth + padding * 2,
         height: textHeight + padding * 2
     }
+    
     meme.frame = framePos
 }
 

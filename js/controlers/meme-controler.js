@@ -90,11 +90,29 @@ function lineIsSelect(gMeme) {
     const textWidth = metrics.width
     const textHeight = meme.size * 1.2
     const padding = 10
+
+    let frameX
+    
+    switch(meme.align) {
+        case 'left':
+            frameX = x
+            break;
+        case 'right':
+            frameX = x - textWidth
+            break;
+        case 'center':
+        default:
+            frameX = x - textWidth / 2
+            break
+    }
+    
     gCtx.strokeStyle = '#00000f'
     gCtx.lineWidth = 2
     gCtx.strokeRect(
-        x - textWidth / 2 - padding,
-        y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+        frameX - padding,
+        y - textHeight / 2 - padding, 
+        textWidth + padding * 2, 
+        textHeight + padding * 2
     )
     console.log(gCtx.strokeRect)
 }
