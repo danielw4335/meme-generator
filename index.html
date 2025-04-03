@@ -10,10 +10,11 @@
 
 <body onload="onInit()">
     
-<header class="main-header grid">
-    <div class="logo">logo</div>
-    <button class="gallery-btn" onclick="onGalleryClick()">Gallery</button>
-    <button class="memes-btn" onclick="onMemesClick()">Memes</button>
+    <header class="main-header grid">
+        <div class="logo">logo</div>
+        <button class="gallery-btn" onclick="onGalleryClick()">Gallery</button>
+        <button class="memes-btn" onclick="onMemesClick()">Memes</button>
+        <button class="btn-saved" onclick="renderSavedMemes(this)">saved Memes</button>
 </header>
 
 <div class="memes-container">
@@ -30,16 +31,17 @@
     
     
     <div class="inputTxt-container">
-    <label for="txt">txt</label>
-    <input type="text" id="txt" placeholder="text" class="inputTxt" oninput="setLineTxt(this.value)">
+    <input type="text" id="txt" placeholder="Let's have fun" class="inputTxt" oninput="setLineTxt(this.value)">
 </div>
 
+<div class="btn-control-line-container">
+    <button class="btn-add-line btn1" onclick="onAddLine()">add line</button>
+    <button class="btn-switch-line btn1" onclick="changeSelectLine()">switch line</button>
+    <button class="btn-delete-line btn1" onclick="onDeleteLine(this)">Delete</button>
+</div> 
 
-<button class="btn-add-line btn1" onclick="onAddLine()">add line</button>
-<button class="btn-switch-line btn1" onclick="changeSelectLine()">switch line</button>
-<button class="btn-delete-line btn1" onclick="onDeleteLine(this)">Delete</button>
-
-<input type="color" class="color-line btn2" name="color" oninput="onChangeColor(event)">
+<div class="btn-line-container">    
+    <input type="color" class="color-line btn2" name="color" oninput="onChangeColor(event)">
     <button class="btn-increase btn2" onclick="onCangeFontSize(true)">A+</button>
     <button class="btn-decrease btn2" onclick="onCangeFontSize(false)">A-</button>
     <button class="btn-align-left btn2" value="left" onclick="onChangeAlignText(this)">left</button>
@@ -47,25 +49,25 @@
     <button class="btn-align-right btn2" value="right" onclick="onChangeAlignText(this)">right</button>
     <button class="btn-line-top btn2" value="5" onclick="onTextTop(this)">up</button>
     <button class="btn-line-bottom btn2" value="5" onclick="onTextBottom(this)">down</button>
+    <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
+       <option value="Arial">Arial</option>
+       <option value="Verdana">Verdana</option>
+       <option value="Impact">Impact</option>
+    </select>
+</div>
 
     
-    
+<div class="main-buttons-container">
     <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
-    
-<select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
-   <option value="Arial">Arial</option>
-   <option value="Verdana">Verdana</option>
-   <option value="Impact">Impact</option>
-</select>
-
     <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
+</div>    
+
 </div>
 </div>
 
 <div class="gallery-container hidden">
      <div class="btn-gallery-container">
          <button class="btn" onclick="onRandomMeme(this)">random</button>
-         <button class="btn-saved" onclick="renderSavedMemes(this)">saved Memes</button>
         </div> 
         <div class="gallery-img">
         </div>
