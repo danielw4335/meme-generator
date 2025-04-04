@@ -169,3 +169,25 @@ function renderSavedMemes() {
 function onAddSticker(emoji) {
     addSticker(emoji)
 }
+
+// call to upload img
+function onUploadImg(ev) {
+    ev.preventDefault()
+    const canvasData = gElCanvas.toDataURL('image/jpeg')
+    uploadImg(canvasData)
+}
+
+// open facebook
+function onUploadToFB(url) {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank')
+}
+
+// render btns to the html
+function uploadSuccess(uploadedImgUrl) {
+    const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+    document.querySelector('.share-container').innerHTML = `
+        <a href="${uploadedImgUrl}" target="_blank">link</a>
+        <button class="btn-facebook" onclick="onUploadToFB('${encodedUploadedImgUrl}')">
+           share to FB
+        </button> `
+}

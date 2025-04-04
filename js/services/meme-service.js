@@ -224,7 +224,7 @@ function setSaveMeme(id) {
         return
     }
     gMeme.selectedImgId = meme.id
-    gMeme.lines = [meme.line] 
+    gMeme.lines = [meme.line]
     gMeme.selectedLineIdx = 0
     gMeme.isFirstRender = true
 
@@ -246,3 +246,21 @@ function addSticker(emoji) {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     renderMeme()
 }
+
+// upload img to cloud
+async function uploadImg(imgData) {
+    const CLOUD_NAME = 'dwm9p7hzu'
+    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
+    const formData = new FormData()
+
+    formData.append('file', imgData)
+    formData.append('upload_preset', 'ml_default')
+    const res = await fetch(UPLOAD_URL, {
+        method: 'POST',
+        body: formData
+    })
+    const data = await res.json()
+    uploadSuccess(data.secure_url)
+}
+
+

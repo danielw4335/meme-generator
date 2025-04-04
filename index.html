@@ -70,6 +70,10 @@
             <div class="main-buttons-container">
                 <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
                 <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download>Download</a>
+                <form onsubmit="onUploadImg(event)">
+                    <button type="submit">Share</button>
+                  </form>
+                  <div class="share-container"></div>
             </div>
         </div>
     </div>
