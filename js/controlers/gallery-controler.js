@@ -1,6 +1,6 @@
 'use strict'
 var gIsSaved = false
-// render al gallery pictures
+// render all gallery pictures
 function renderGallery(txt) {
     let img = setfilterImg(txt)
     const strHTMLS = img.map(img => `
@@ -12,6 +12,10 @@ function renderGallery(txt) {
 // call to set img
 function onImgSelect(id) {
     setImg(id)
+}
+
+function onSaveImgSelect(id){
+setSaveMeme(id)
 }
 
 // call to random meme
@@ -30,10 +34,17 @@ function renderSavedImgs() {
     let iMgs = getFromStorage()
     console.log(iMgs)
     let strHTMLS = iMgs.map((meme, index) => `
-                    <img src="${meme.imgData}" id="saved-${meme.id}" onclick="onImgSelect(${index})" />   `)
+    <img src="${meme.imgData}" id="saved-${meme.id}" onclick="onSaveImgSelect(${meme.id},${index})" /> `)
     document.querySelector('.gallery-img').innerHTML = strHTMLS.join('')
+    console.log('meme, index:', strHTMLS )
 }
 
 function onSetfilterImg(th) {
     renderGallery(th.value)
+}
+
+function onClearInput() {
+    const elInput = document.getElementById('filtert-txt')
+    elInput.value = ''
+    renderGallery()
 }

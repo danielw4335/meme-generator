@@ -34,7 +34,6 @@ function getMeme() {
     let imgSrc = gImgs[gMeme.selectedImgId - 1].url
     let img = new Image()
     img.src = imgSrc
-
     return { img, line }
 }
 
@@ -217,3 +216,33 @@ function getFromStorage() {
     return gSavedMemes
 }
 
+// send to controler meme from local storage
+function setSaveMeme(id) {
+    const savedMemes = getFromStorage()
+    const meme = savedMemes.find(m => m.id === id)
+    if (!meme) {
+        return
+    }
+    gMeme.selectedImgId = meme.id
+    gMeme.lines = [meme.line] 
+    gMeme.selectedLineIdx = 0
+    gMeme.isFirstRender = true
+
+    onMemesClick()
+    renderMeme()
+}
+
+// add emoji line to global
+function addSticker(emoji) {
+    const y = 100 + gMeme.lines.length * 5
+    gMeme.lines.push({
+        txt: emoji,
+        size: 40,
+        color: '#000000',
+        align: 'center',
+        pos: { x: gElCanvas.width / 2, y },
+        isSelected: true
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    renderMeme()
+}

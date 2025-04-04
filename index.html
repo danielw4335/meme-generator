@@ -51,6 +51,14 @@
                 <button class="btn-align-right btn2" value="right" onclick="onChangeAlignText(this)">right</button>
                 <button class="btn-line-top btn2" value="5" onclick="onTextTop(this)">up</button>
                 <button class="btn-line-bottom btn2" value="5" onclick="onTextBottom(this)">down</button>
+           
+                <div class="stickers-container">
+                    <button onclick="onAddSticker('😜')">😜</button>
+                    <button onclick="onAddSticker('😍')">😍</button>
+                    <button onclick="onAddSticker('🔥')">🔥</button>
+                    <button onclick="onAddSticker('💥')">💥</button>
+                </div>                
+
             </div>
             <!-- change fonts -->
             <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
@@ -70,8 +78,9 @@
     <div class="gallery-container hidden">
         <div class="btn-gallery-container">
             <button class="btn" onclick="onRandomMeme(this)">random</button>
-            <input type="text" id="txt" placeholder="What are you looking for?" class="filtert-txt"
+            <input type="text" id="filtert-txt" placeholder="What are you looking for?" class="filtert-txt"
                 oninput="onSetfilterImg(this)">
+                <button onclick="onClearInput()">clear</button>
         </div>
         <div class="gallery-img"></div>
     </div>

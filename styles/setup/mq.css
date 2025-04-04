@@ -7,13 +7,6 @@
     max-height: 300px;
   }
 
-  .btn1,
-  .btn2 {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
-  }
-
   .btn-control-line-container {
     flex-wrap: wrap;
     justify-content: center;

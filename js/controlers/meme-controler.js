@@ -9,7 +9,6 @@ function initCanvas() {
     gCtx = gElCanvas.getContext('2d')
 
     resizeCanvas()
-    drawCharts()
 }
 
 function onClick(ev) {
@@ -164,4 +163,9 @@ function renderSavedMemes() {
     renderSavedImgs()
     if (!savedMemes || savedMemes.length === 0) return []
     return savedMemes.map(meme => meme.line)
+}
+
+// call to add emoji
+function onAddSticker(emoji) {
+    addSticker(emoji)
 }

@@ -50,16 +50,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 15px;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .btn1,
 .btn2 {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
+    width: 100%;
+    max-height: 100px;
+    height: 100%;
+    max-width: 100px;
+    font-size: 20px;
     border-radius: 8px;
     cursor: pointer;
     background-color: rgb(183, 185, 217);
