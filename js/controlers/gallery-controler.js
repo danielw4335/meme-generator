@@ -1,5 +1,8 @@
 'use strict'
 var gIsSaved = false
+
+
+
 // render all gallery pictures
 function renderGallery(txt) {
     let img = setfilterImg(txt)
@@ -39,12 +42,29 @@ function renderSavedImgs() {
     console.log('meme, index:', strHTMLS )
 }
 
+// user unput some text to the input
 function onSetfilterImg(th) {
     renderGallery(th.value)
 }
 
+// user click to clear input
 function onClearInput() {
     const elInput = document.getElementById('filtert-txt')
     elInput.value = ''
     renderGallery()
+}
+
+// user click on some word
+function onKeywordClick(keyword) {
+    keywordClick(keyword)
+} 
+
+// render all keyWords 
+function renderKeywords() {
+    const elContainer = document.querySelector('.keywords-container')
+    const strHTMLs = Object.entries(gKeywordCount).map(([word, count]) => {
+        const fontSize = 12 + count * 2 
+        return `<span class="keyword" style="font-size: ${fontSize}px" onclick="onKeywordClick('${word}')">${word}</span>`
+    })
+    elContainer.innerHTML = strHTMLs.join(' ')
 }

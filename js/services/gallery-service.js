@@ -1,5 +1,13 @@
 'use strict'
 
+const gKeywordCount = {
+    'funny': 10,
+    'cat': 15,
+    'baby': 7,
+    'politics': 5,
+    'dog': 8
+}
+
 var gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['politics', 'leader', 'speech'] },
     { id: 2, url: 'img/2.jpg', keywords: ['dogs', 'puppies', 'cute'] },
@@ -23,6 +31,7 @@ var gImgs = [
 ]
 
 
+
 // get random meme
 function randomMeme() {
     if (!gImgs || gImgs.length === 0) return null
@@ -43,3 +52,11 @@ function setfilterImg(txt) {
     return filteredImages
 }
 
+// user click on the wordKey
+function keywordClick(word) {
+    if (!gKeywordCount[word]) gKeywordCount[word] = 1
+    else gKeywordCount[word]++
+
+    renderGallery(word)
+    renderKeywords()
+} 

@@ -9,7 +9,7 @@ function onInit() {
 
     initCanvas()
     renderGallery()
-
+    renderKeywords()
     window.addEventListener('resize', resizeCanvas)
 }
 
