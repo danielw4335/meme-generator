@@ -10,11 +10,20 @@
 
 .logo {
     grid-area: lo;
-    height: 100%;
-    background-color: rgb(184, 252, 230);
-    font-size: 33px;
-    padding-left: 10px;
+    height: 40px;
+    font-size: 26px; 
+    font-weight: bold; 
+    color: #9e9191; 
+    text-transform: uppercase; 
+    letter-spacing: 3px;  
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
+    font-family: 'Roboto', sans-serif; 
+    padding: 12px 24px; 
+    border-radius: 10px; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
+
+
 
 .gallery-btn {
     grid-area: gb;
@@ -32,4 +41,8 @@
     grid-area: bs;
     background-color: transparent;
     border-bottom: none;
+}
+
+.gallery-btn, .memes-btn, .btn-saved {
+    height: 40px; 
 }

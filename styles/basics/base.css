@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(123 153 143);
+
+}
+
 .hidden {
     display: none !important;
 }

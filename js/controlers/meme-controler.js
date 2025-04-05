@@ -36,20 +36,17 @@ function renderLines(gMeme) {
     gMeme.lines.forEach(meme => {
         let x = meme.pos.x
         let y = meme.pos.y
-        console.log('x line, y line:', x, y)
         gCtx.lineWidth = 0.1
         gCtx.strokeStyle = 'red'
         gCtx.fillStyle = meme.color
-        gCtx.font = `${meme.size}px ${meme.font}`
+        gCtx.font = `${meme.size}px ${meme.font || 'Arial'}` // Default font if not set
         gCtx.textAlign = `${meme.align}`
         gCtx.textBaseline = 'middle'
         gCtx.fillText(meme.txt, x, y)
         gCtx.strokeText(meme.txt, x, y)
         setPosFrameLine(meme, x, y)
-        if (meme.isSelected) lineIsSelect(gMeme)
+        if (meme.isSelected) drawFrameLine(meme)
     })
-
-
 }
 
 // btn download
@@ -101,10 +98,10 @@ function lineIsSelect(gMeme) {
     switch (meme.align) {
         case 'left':
             frameX = x
-            break;
+            break
         case 'right':
             frameX = x - textWidth
-            break;
+            break
         case 'center':
         default:
             frameX = x - textWidth / 2

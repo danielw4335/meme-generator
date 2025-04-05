@@ -96,7 +96,7 @@ function changeSelectLine() {
 
 // draw frame to the lines 
 function drawFrameLine(meme) {
-    if (!meme.txt || meme.txt.trim() === '') return
+    if (!meme.txt || meme.txt.trim() === '') return // Skip empty lines
     let y = meme.pos.y
     let x = meme.pos.x
     const metrics = gCtx.measureText(meme.txt)
@@ -107,7 +107,9 @@ function drawFrameLine(meme) {
     gCtx.lineWidth = 2
     gCtx.strokeRect(
         x - textWidth / 2 - padding,
-        y - textHeight / 2 - padding, textWidth + padding * 2, textHeight + padding * 2
+        y - textHeight / 2 - padding,
+        textWidth + padding * 2,
+        textHeight + padding * 2
     )
 }
 
@@ -137,32 +139,30 @@ function whenBoardClick(ev) {
 function setPosFrameLine(meme, x, y) {
     const metrics = gCtx.measureText(meme.txt)
     const textWidth = metrics.width
-    const textHeight = meme.size * 1.2
+    const textHeight = meme.size * 1.2 
     const padding = 10
 
-    let frameX;
+    let frameX
 
     switch (meme.align) {
         case 'left':
-            frameX = x
+            frameX = x 
             break
         case 'right':
-            frameX = x - textWidth;
+            frameX = x - textWidth 
             break
         case 'center':
         default:
-            frameX = x - textWidth / 2
+            frameX = x - textWidth / 2 
             break
     }
 
-    let framePos = {
+    meme.frame = {
         x: frameX - padding,
         y: y - textHeight / 2 - padding,
         width: textWidth + padding * 2,
         height: textHeight + padding * 2
     }
-
-    meme.frame = framePos
 }
 
 // change font family
@@ -191,7 +191,7 @@ function textBottom(bottom) {
 
 // delete selected line
 function deleteLine() {
-    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx = gMeme.selectedLineIdx = 0
     renderMeme()
 }
