@@ -53,21 +53,28 @@
     gap: 10px;
 }
 
-.btn1,
-.btn2 {
+.btn1 {
     width: 100%;
     max-height: 100px;
     height: 100%;
     max-width: 100px;
-    font-size: 20px;
+    font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
     background-color: rgb(183, 185, 217);
 }
 
 .btn2 {
-    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-height: 100px;
+    height: 35px;
+    max-width: 100px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(183, 185, 217);
 }
+
 
 .btn1:hover,
 .btn2:hover {
@@ -89,14 +96,14 @@
 }
 
 .btn-save-meme,
-.btn-download {
+.btn-download ,
+button{
     flex: 1;
     height: 40px;
     font-size: larger;
     background-color: cadetblue;
     border-radius: 6px;
     font-weight: 700;
-    letter-spacing: 4px;
     color: aliceblue;
     cursor: pointer;
     border: none;
@@ -124,7 +131,7 @@
 }
 
 
-button {
+/* button {
     padding: 6px 12px;
     font-size: 14px;
     font-weight: bold;
@@ -133,7 +140,7 @@ button {
     cursor: pointer;
     background-color: #419bc8;
     transition: all 0.3s ease;
-}
+} */
 
 button:hover {
     background-color: #7fc6ea;
@@ -144,7 +151,8 @@ button:hover {
 
 .btn1 {
     font-size: 12px;
-    padding: 4px 8px;    
+    padding: 2px 4px;  
+    height: 30px;  
     background-color: #2196F3;
     color: white;
 }
@@ -155,8 +163,8 @@ button:hover {
 
 .stickers-container {
   display: flex;
-  gap: 10px;
-  margin: 15px 0 ;
+  gap: 0 10px;
+  margin: 15px;
   justify-content: center;
 }
 

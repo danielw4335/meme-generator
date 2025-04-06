@@ -11,11 +11,11 @@
 .logo {
     grid-area: lo;
     height: 40px;
-    font-size: 26px; 
+    font-size: 16px; 
     font-weight: bold; 
     color: #9e9191; 
     text-transform: uppercase; 
-    letter-spacing: 3px;  
+    /* letter-spacing: 3px;   */
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
     font-family: 'Roboto', sans-serif; 
     padding: 12px 24px; 
@@ -45,4 +45,7 @@
 
 .gallery-btn, .memes-btn, .btn-saved {
     height: 40px; 
+    width: 60px;
+    color: black;
+    font-size: 12px;
 }
