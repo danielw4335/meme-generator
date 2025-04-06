@@ -39,7 +39,7 @@ function renderLines(gMeme) {
         gCtx.lineWidth = 0.1
         gCtx.strokeStyle = 'red'
         gCtx.fillStyle = meme.color
-        gCtx.font = `${meme.size}px ${meme.font || 'Arial'}` // Default font if not set
+        gCtx.font = `${meme.size}px ${meme.font || 'Arial'}`
         gCtx.textAlign = `${meme.align}`
         gCtx.textBaseline = 'middle'
         gCtx.fillText(meme.txt, x, y)
@@ -84,7 +84,7 @@ function lineIsSelect(gMeme) {
     let meme = gMeme.lines[gMeme.selectedLineIdx]
     document.querySelector('.inputTxt').value = `${meme.txt}`
     document.querySelector('.color-line').value = `${meme.color}`
-
+    
     if (!meme.txt || meme.txt.trim() === '') return
     let y = meme.pos.y
     let x = meme.pos.x
