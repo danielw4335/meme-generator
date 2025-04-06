@@ -9,6 +9,7 @@
     gap: 10px;
     font-size: 0.9rem;
     height: auto;
+    max-width: 450px;
     min-height: 300px;
     overflow-y: auto;
     background-color: #f9f9f9;

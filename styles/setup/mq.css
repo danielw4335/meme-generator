@@ -29,11 +29,18 @@
 @media (min-width: 640px) {
   .memes-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(200px 1fr));
+    grid-template-columns: repeat(2,  1fr);
     gap: 20px;
     padding: 20px;
   }
+  .canvas-container {
+    max-height: 450px;
+  }
 
+  .editor-container {
+    padding: 20px;
+  }
+  
   .canvas-container {
     aspect-ratio: 1 / 1;
     max-height: 450px;
@@ -91,8 +98,14 @@
 }
 
 }
+/* @media (min-width: 960px) {
+  .memes-container {
+    grid-template-columns: 3fr 3fr;
+    gap: 30px;
+  }
+} */
 
-@media (min-width: 930px) {
+@media (min-width: 1050px) {
   .memes-container {
     grid-template-columns: 3fr 3fr;
     gap: 30px;
