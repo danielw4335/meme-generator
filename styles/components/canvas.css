@@ -1,8 +1,6 @@
 .canvas-container {
   border-radius: 12px;
   max-width: 450px;
-  /* max-height: 450px; */
-  /* width: fit-content; */
   overflow: hidden;
   display: block;
   border: none;

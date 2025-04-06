@@ -12,6 +12,7 @@
 @import url(components/main-header.css);
 @import url(components/img.css);
 @import url(components/editor.css);
+@import url(components/main-footer.css);
 
 /* setup */
 @import url(setup/mq.css);

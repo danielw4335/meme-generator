@@ -1,0 +1,17 @@
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.footer-container p {
+    margin: 0;
+    text-align: center;
+}
+
