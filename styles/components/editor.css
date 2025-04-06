@@ -84,13 +84,12 @@
 }
 
 .change-font {
-    width: 90%;
+    width: 80px;
     max-width: 250px;
     height: 40px;
     border-radius: 6px;
     font-size: 1.1rem;
     padding: 8px;
-    letter-spacing: 8px;
     font-weight: 700;
     text-align: center;
     grid-column: span 2;
@@ -101,10 +100,11 @@
 button{
     flex: 1;
     height: 40px;
+    width: 40px;
+    max-width: 40px;
     font-size: larger;
     background-color: cadetblue;
     border-radius: 6px;
-    font-weight: 700;
     color: aliceblue;
     cursor: pointer;
     border: none;
@@ -120,7 +120,6 @@ button{
 
 .main-buttons-container {
     display: flex;
-    justify-content: space-between;
     margin-top: 10px;
     gap: 15px;
 }
@@ -131,17 +130,6 @@ button{
     margin-top: 10px;
 }
 
-
-/* button {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #419bc8;
-    transition: all 0.3s ease;
-} */
 
 button:hover {
     background-color: #7fc6ea;

@@ -1,3 +1,5 @@
+
+
 @media (max-width: 640px) {
   body {
     height: 100vh;
@@ -26,21 +28,25 @@
   }
 }
 
-@media (min-width: 640px) {
+
+@media (min-width: 750px) {
   .memes-container {
     display: grid;
-    grid-template-columns: repeat(2,  1fr);
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 20px;
     padding: 20px;
   }
+
   .canvas-container {
-    max-height: 450px;
+    gap: 20px;
+    width: 100%;
+    max-width: 450px;
   }
 
   .editor-container {
     padding: 20px;
   }
-  
+
   .canvas-container {
     aspect-ratio: 1 / 1;
     max-height: 450px;
@@ -51,8 +57,6 @@
     height: 100%;
     max-height: 450px;
     width: 100%;
-    /* max-width: 450px; */
-    /* padding: 15px; */
   }
 
   .main-header {
@@ -60,52 +64,49 @@
     height: 100px;
     grid-template-columns: 4fr 8fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "lo . bs . mb . gb .";
-}
+      "lo . bs . mb . gb .";
+  }
 
-.logo {
+  .logo {
     grid-area: lo;
     height: 100px;
-    font-size: 38px; 
-    letter-spacing: 6px;  
-    padding: 24px 48px; 
-}
+    font-size: 80px;
+    margin-left: px;
+  }
 
 
 
-.gallery-btn {
+  .gallery-btn {
     grid-area: gb;
     background-color: transparent;
     border-bottom: none;
-}
+  }
 
-.memes-btn {
+  .memes-btn {
     grid-area: mb;
     background-color: transparent;
     border-bottom: none;
-}
+  }
 
-.btn-saved {
+  .btn-saved {
     grid-area: bs;
     background-color: transparent;
     border-bottom: none;
-}
-
-.gallery-btn, .memes-btn, .btn-saved {
-  height: 100px; 
-  width: 100px;
-  font-size: 20px;
-}
-
-}
-/* @media (min-width: 960px) {
-  .memes-container {
-    grid-template-columns: 3fr 3fr;
-    gap: 30px;
   }
-} */
 
-@media (min-width: 1050px) {
+  .gallery-btn,
+  .memes-btn,
+  .btn-saved {
+    height: 100px;
+    width: 100px;
+    font-size: 40px;
+    margin-right: 25px;
+  }
+
+}
+
+
+@media (min-width: 985px) {
   .memes-container {
     grid-template-columns: 3fr 3fr;
     gap: 30px;

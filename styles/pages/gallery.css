@@ -38,4 +38,5 @@
     border: 1px solid #ddd;
     border-radius: 30px;
     font-size: 16px;
+    max-width: 120px;
 }

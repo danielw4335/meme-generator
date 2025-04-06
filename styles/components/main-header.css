@@ -11,14 +11,8 @@
 .logo {
     grid-area: lo;
     height: 40px;
-    font-size: 16px; 
-    font-weight: bold; 
-    color: #9e9191; 
-    text-transform: uppercase; 
-    /* letter-spacing: 3px;   */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
-    font-family: 'Roboto', sans-serif; 
-    padding: 12px 24px; 
+    font-size: 30px; 
+    padding: 5px 30%; 
     border-radius: 10px; 
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
