@@ -55,18 +55,18 @@
                 
             </div>
             <div class="stickers-container">
+                <!-- change fonts -->
+                <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Impact">Impact</option>
+                </select>
                 <button onclick="onAddSticker('😜')">😜</button>
                 <button onclick="onAddSticker('😍')">😍</button>
                 <button onclick="onAddSticker('🔥')">🔥</button>
                 <button onclick="onAddSticker('💥')">💥</button>
             </div>          
                   
-            <!-- change fonts -->
-            <select name="fonts" id="font" class="change-font" onchange="onChangeFontFamily(this)">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Impact">Impact</option>
-            </select>
 
             <div class="main-buttons-container">
                 <button class="btn-save-meme" onclick="onSaveMeme()">save</button>
